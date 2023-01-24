@@ -74,6 +74,8 @@ export default function NumberPad() {
   const clearButtonHandler = () => dispatch({ type: ACTIONS.CLEAR });
   const deleteButtonHandler = () => dispatch({ type: ACTIONS.DELETE });
   const equalButtonHandler = () => dispatch({ type: ACTIONS.EQUAL });
+  const decimalButtonHandler = () => dispatch({ type: ACTIONS.DECIMAL });
+
   return (
     <div className='calculator-grid'>
       <div className='output'>
@@ -86,22 +88,30 @@ export default function NumberPad() {
         AC
       </button>
       <button onClick={deleteButtonHandler}>DEL</button>
+
       <Operations operand='÷' dispatch={dispatch} />
 
       <Digit digit='1' dispatch={dispatch} />
       <Digit digit='2' dispatch={dispatch} />
       <Digit digit='3' dispatch={dispatch} />
+
       <Operations operand='×' dispatch={dispatch} />
+
       <Digit digit='4' dispatch={dispatch} />
       <Digit digit='5' dispatch={dispatch} />
       <Digit digit='6' dispatch={dispatch} />
+
       <Operations operand='+' dispatch={dispatch} />
+
       <Digit digit='7' dispatch={dispatch} />
       <Digit digit='8' dispatch={dispatch} />
       <Digit digit='9' dispatch={dispatch} />
+
       <Operations operand='-' dispatch={dispatch} />
-      <button>.</button>
+      <button onClick={decimalButtonHandler}>.</button>
+
       <Digit digit='0' dispatch={dispatch} />
+
       <button onClick={equalButtonHandler} className='span-two'>
         =
       </button>
